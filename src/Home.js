@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import './Home.css';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -114,11 +114,11 @@ function Home() {
         //Redirect to Description page
         navigate('/description', {
             state: {
-              test:"test"
+                test: "test"
             }
+        }
+        );
     }
-    );
-}
 
     return (
         <div className="Home">
@@ -128,13 +128,13 @@ function Home() {
             <div className="cardParent">
                 {store.map((item) => (
                     <div className="card" key={item.id} >
-                        <div onClick={(e) => {clickCard(e, item);}}>
-                        <p>{item.name}</p>
-                        <p>{item.discription}</p>
-                        <img src={item.image} height={200} width={200} alt={item.name} />
-                        <p>{item.price}</p>
+                        <div onClick={(e) => { clickCard(e, item); }}>
+                            <p>{item.name}</p>
+                            <p>{item.discription}</p>
+                            <img src={item.image} height={200} width={200} alt={item.name} />
+                            <p>{item.price}</p>
                         </div>
-                        <button onClick={(e) => {handleOpen(e, item)}}>Add to Cart</button>
+                        <button onClick={(e) => { handleOpen(e, item) }}>Add to Cart</button>
                     </div>
                 ))}
             </div>
@@ -145,7 +145,7 @@ function Home() {
             </Modal>
 
         </div>
-        
+
     );
 }
 
