@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './index.css';
 import './Home.css';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -7,8 +7,19 @@ import Description from './Description';
 //Redirect 
 import { Navigate } from 'react-router-dom';
 import Navigation from './Navigation';
+import { Modal } from '@material-ui/core';
 function Home() {
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
+    const handleOpen = (e, item) => {
+        e.preventDefault();
+        console.log("button click", item.name);
+        setOpen(true)
+    };
+
+    const handleClose = () => setOpen(false);
+
+
     let store = [
         {
             id: 0,
@@ -96,14 +107,17 @@ function Home() {
         }
     ]
 
-    function clickCard() {
-        console.log("clicked");
+
+    function clickCard(e, item) {
+        e.preventDefault();
+        console.log(item.name);
         //Redirect to Description page
         navigate('/description', {
             state: {
               test:"test"
             }
-    });
+    }
+    );
 }
 
     return (
@@ -113,15 +127,23 @@ function Home() {
             {/* use store array and print cards to display items from store array */}
             <div className="cardParent">
                 {store.map((item) => (
-                    <div className="card" key={item.id} onClick={clickCard}>
+                    <div className="card" key={item.id} >
+                        <div onClick={(e) => {clickCard(e, item);}}>
                         <p>{item.name}</p>
                         <p>{item.discription}</p>
                         <img src={item.image} height={200} width={200} alt={item.name} />
                         <p>{item.price}</p>
-                        <button>Add to Cart</button>
+                        </div>
+                        <button onClick={(e) => {handleOpen(e, item)}}>Add to Cart</button>
                     </div>
                 ))}
             </div>
+            <Modal open={open} onClose={handleClose}>
+                <div>
+                    <h2>Item added to cart</h2>
+                </div>
+            </Modal>
+
         </div>
         
     );
