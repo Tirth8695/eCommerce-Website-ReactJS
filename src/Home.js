@@ -1,18 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState,  useEffect } from 'react';
 import './index.css';
 import './Home.css';
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { Link, useNavigate } from 'react-router-dom';
-import Description from './Description';
-//Redirect 
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Navigation from './Navigation';
 function Home() {
     const navigate = useNavigate();
+    const [cart, setCart] = useState([]);
+    
+    useEffect(() => {
+        const cart = localStorage.getItem('cart');
+        if (cart) {
+            setCart(JSON.parse(cart));
+        } else {
+            setCart([]);
+        }
+    }, []);
+
+    const addItemToCart = (item) => {
+        const cart = localStorage.getItem('cart');
+        let cartItems = [];
+        if (cart) {
+            cartItems = JSON.parse(cart);
+        }
+        // check if item is already in cart add quantity instead of adding new item
+        const itemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
+        if (itemInCart) {
+            itemInCart.quantity++;
+        } else {
+            cartItems.push({ ...item, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        setCart(cartItems);
+    }   
 
 
 
-    let store = [
+
+    const store = [
         {
             id: 0,
             name: "T-shirt",
@@ -111,12 +135,9 @@ function Home() {
         }
         );
     }
-    var cartQuantity = 0;
+    
     function handleClick(e) {
         e.preventDefault();
-        
-        cartQuantity++;
-        document.getElementById("sub").innerHTML = cartQuantity;
 
      }
 
@@ -134,7 +155,7 @@ function Home() {
                             <img src={item.image} height={200} width={200} alt={item.name} />
                             <p>{item.price}</p>
                         </div>
-                        <button onClick={handleClick}>Add to Cart</button>
+                        <button onClick={() => addItemToCart(item)}>Add to Cart</button>
                     </div>
                 ))}
             </div>
