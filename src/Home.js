@@ -1,8 +1,14 @@
 import React from 'react';
 import './index.css';
 import './Home.css';
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { Link, useNavigate } from 'react-router-dom';
+import Description from './Description';
+//Redirect 
+import { Navigate } from 'react-router-dom';
 
 function Home() {
+    const navigate = useNavigate();
     let store = [
         {
             id: 0,
@@ -89,7 +95,13 @@ function Home() {
             price: 20.00
         }
     ]
-    console.log(store);
+
+    function clickCard() {
+        console.log("clicked");
+        //Redirect to Description page
+        navigate('/description');
+    }
+
     return (
         <div className="Home">
             {/* nav bar for this react page in jsx without css*/}
@@ -98,12 +110,13 @@ function Home() {
                     <li><a href="Home">Home</a></li>
                     <li><a href="Login">Login</a></li>
                     <li><a href="Logout">Logout</a></li>
+                    <ShoppingCartIcon/>
                 </ul>
             </nav>
             {/* use store array and print cards to display items from store array */}
             <div className="cardParent">
                 {store.map((item) => (
-                    <div className="card" key={item.id}>
+                    <div className="card" key={item.id} onClick={clickCard}>
                         <p>{item.name}</p>
                         <p>{item.discription}</p>
                         <img src={item.image} height={200} width={200} alt={item.name} />
