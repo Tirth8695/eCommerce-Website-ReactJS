@@ -7,17 +7,9 @@ import Description from './Description';
 //Redirect 
 import { Navigate } from 'react-router-dom';
 import Navigation from './Navigation';
-import { Modal } from '@material-ui/core';
 function Home() {
     const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
-    const handleOpen = (e, item) => {
-        e.preventDefault();
-        console.log("button click", item.name);
-        setOpen(true)
-    };
 
-    const handleClose = () => setOpen(false);
 
 
     let store = [
@@ -119,11 +111,19 @@ function Home() {
         }
         );
     }
+    var cartQuantity = 0;
+    function handleClick(e) {
+        e.preventDefault();
+        
+        cartQuantity++;
+        document.getElementById("sub").innerHTML = cartQuantity;
+
+     }
 
     return (
         <div className="Home">
             {/* nav bar for this react page in jsx without css*/}
-            <Navigation />
+            <Navigation id="nav" />
             {/* use store array and print cards to display items from store array */}
             <div className="cardParent">
                 {store.map((item) => (
@@ -134,15 +134,11 @@ function Home() {
                             <img src={item.image} height={200} width={200} alt={item.name} />
                             <p>{item.price}</p>
                         </div>
-                        <button onClick={(e) => { handleOpen(e, item) }}>Add to Cart</button>
+                        <button onClick={handleClick}>Add to Cart</button>
                     </div>
                 ))}
             </div>
-            <Modal open={open} onClose={handleClose}>
-                <div>
-                    <h2>Item added to cart</h2>
-                </div>
-            </Modal>
+
 
         </div>
 

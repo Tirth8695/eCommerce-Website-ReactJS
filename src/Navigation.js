@@ -9,7 +9,7 @@ function Navigation() {
                     <li><a href="Home">Home</a></li>
                     <li><a href="Login">Login</a></li>
                     <li><a href="Logout">Logout</a></li>
-                    <ShoppingCartIcon/>
+          <ShoppingCartIcon /><sub id="sub"></sub>
                 </ul>
             </nav>
     </div>
