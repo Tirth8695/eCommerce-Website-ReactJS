@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Description from './Description';
 //Redirect 
 import { Navigate } from 'react-router-dom';
-
+import Navigation from './Navigation';
 function Home() {
     const navigate = useNavigate();
     let store = [
@@ -99,20 +99,17 @@ function Home() {
     function clickCard() {
         console.log("clicked");
         //Redirect to Description page
-        navigate('/description');
-    }
+        navigate('/description', {
+            state: {
+              test:"test"
+            }
+    });
+}
 
     return (
         <div className="Home">
             {/* nav bar for this react page in jsx without css*/}
-            <nav>
-                <ul>
-                    <li><a href="Home">Home</a></li>
-                    <li><a href="Login">Login</a></li>
-                    <li><a href="Logout">Logout</a></li>
-                    <ShoppingCartIcon/>
-                </ul>
-            </nav>
+            <Navigation />
             {/* use store array and print cards to display items from store array */}
             <div className="cardParent">
                 {store.map((item) => (
