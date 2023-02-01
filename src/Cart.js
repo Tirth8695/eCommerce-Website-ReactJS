@@ -107,11 +107,9 @@ function Cart(props) {
             <button onClick={handleCheckout}>CheckOut</button>
             <div>
                 <span id='checkTitle'></span>
-                <p>Total: {total}</p>
+                <p>Total: {total.toFixed(2)}</p>
             </div>
         </div>
-
-
     );
 }
 export default Cart;

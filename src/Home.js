@@ -20,7 +20,8 @@ function Home() {
 
 
 
-    const addItemToCart = (item) => {
+    const addItemToCart = (e, item) => {
+        e.preventDefault();
         const cart = localStorage.getItem('cart');
         let cartItems = [];
         if (cart) {
@@ -36,8 +37,8 @@ function Home() {
         }
         localStorage.setItem('cart', JSON.stringify(cartItems));
         document.getElementById("sub").innerHTML = cartItems.length;
-        document.getElementById("addItemCart").innerHTML = "Added To Cart"
-        setTimeout(() => { document.getElementById("addItemCart").innerHTML = "Add To Cart" }, 2000);
+        e.target.innerHTML = "Added To Cart"
+        setTimeout(() => { e.target.innerHTML = "Add To Cart" }, 2000);
         setCart(cartItems);
     }   
 
@@ -163,7 +164,7 @@ function Home() {
                             <img src={item.image} height={200} width={200} alt={item.name} />
                             <p>{item.price}</p>
                         </div>
-                        <button id="addItemCart" onClick={() => addItemToCart(item)}>Add to Cart</button>
+                        <button id="addItemCart" onClick={(e) => addItemToCart(e, item)}>Add to Cart</button>
                     </div>
                 ))}
             </div>
