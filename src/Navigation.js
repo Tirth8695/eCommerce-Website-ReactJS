@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useNavigate } from "react-router-dom";
+import "./Navigation.css"
 
 function Navigation() {
   const navigate = useNavigate();
@@ -32,12 +33,12 @@ function Navigation() {
 
   return (
     <div>
-      <nav>
+      <nav id="navigation">
                 <ul>
-                    <li><a href="Home">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="Login" id="login">Login</a></li>
-                    <li id="logout"><a style={{color:"#0000e4"}}onClick={handleLogout}>Logout</a></li>
-                    <ShoppingCartIcon onClick={handleCartOpen}/><sub id="sub"></sub>
+                    <li id="logout"><a style={{color:"#0000e4", cursor:"pointer"}}onClick={handleLogout}><u>Logout</u></a></li>
+                    <div id="cartIcon"><ShoppingCartIcon onClick={handleCartOpen} style={{cursor:"pointer"}}/></div><sub id="sub"></sub>
                 </ul>
             </nav>
     </div>

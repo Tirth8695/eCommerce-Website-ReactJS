@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 // import './Cart.css';
 import { useLocation, useEffect } from "react-router-dom";
+import Navigation from './Navigation';
 
 function Cart(props) {
     const location = useLocation();
@@ -78,6 +79,7 @@ function Cart(props) {
 
     return (
         <div className="Home">
+            <Navigation />
             <span>Cart</span>
             <table>
                 <thead>

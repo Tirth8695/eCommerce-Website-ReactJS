@@ -1,0 +1,25 @@
+
+  #navigation ul li h3 {
+    font-weight: normal;
+    color: #000;
+    padding: 0;
+    letter-spacing: 0.25px;
+  }
+  #navigation ul li {
+    list-style: none;
+    display:inline-block;
+  }
+  #navigation a{
+    text-align: center;
+  }
+
+  #navigation li {
+    margin: 12px;
+  }
+
+  #cartIcon {
+    position: relative;
+    float: right;
+    margin: auto;
+    padding-right: 40px;
+  }
