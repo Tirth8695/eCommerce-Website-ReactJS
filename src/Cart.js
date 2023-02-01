@@ -1,11 +1,14 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 // import './Cart.css';
 import { useLocation, useEffect } from "react-router-dom";
 
 function Cart(props) {
     const location = useLocation();
     const [cartChange, setCart] = React.useState([]);
+    const [login, setLogin] = useState("");
+    const [total, setTotal] = useState(0);
+    var sum = 0;
     //fetch data of cart from local storage
     const cart = localStorage.getItem('cart');
     let cartItems = [];
@@ -37,13 +40,14 @@ function Cart(props) {
         let cartItems = [];
         if (cart) {
             cartItems = JSON.parse(cart);
-        }   
+        }
         const itemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
         if (itemInCart) {
             itemInCart.quantity++;
         }
         localStorage.setItem('cart', JSON.stringify(cartItems));
         setCart(cartItems);
+
     }
 
     const removeItemFromCart = (e, item) => {
@@ -60,9 +64,17 @@ function Cart(props) {
         }
         localStorage.setItem('cart', JSON.stringify(cartItems));
         setCart(cartItems);
-        
+
     }
 
+    const handleCheckout = (e) => {
+        e.preventDefault();
+        sum = 0;
+        cartItems.map((item) => {
+            sum = sum + (item.quantity * item.price);
+        });
+        setTotal((sum * 0.13) + sum);
+    }
 
     return (
         <div className="Home">
@@ -92,8 +104,14 @@ function Cart(props) {
                     ))}
                 </tbody>
             </table>
+            <button onClick={handleCheckout}>CheckOut</button>
+            <div>
+                <span id='checkTitle'></span>
+                <p>Total: {total}</p>
+            </div>
         </div>
-        
+
+
     );
 }
 export default Cart;
