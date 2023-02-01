@@ -14,11 +14,11 @@ function Navigation() {
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
     //change login button to "hello, {name}" if user is logged in
     if (user) {
-      console.log(user);
       document.getElementById("login").innerHTML = "Hello, " + user.fName;
     } else {
       document.getElementById("login").innerHTML = "Login";
       document.getElementById("logout").style.display = "none";
+      document.getElementById("edit").style.display = "none";
     }
   });
 
@@ -37,6 +37,7 @@ function Navigation() {
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="Login" id="login">Login</a></li>
+                    <li id="edit"><a href="Edit">Edit Profile</a></li>
                     <li id="logout"><a style={{color:"#0000e4", cursor:"pointer"}}onClick={handleLogout}><u>Logout</u></a></li>
                     <div id="cartIcon"><ShoppingCartIcon onClick={handleCartOpen} style={{cursor:"pointer"}}/></div><sub id="sub"></sub>
                 </ul>
