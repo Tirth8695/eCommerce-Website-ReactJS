@@ -1,11 +1,19 @@
 // login page
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
     //fetch user data from local storage
     const userData = localStorage.getItem('user');
+    //fetch logged in user data from local storage
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    //if user is logged in, redirect to home page
+    useEffect(() => {
+        if (loggedInUser) {
+            navigate("/");
+        }
+    },[]);
     let user = [];
     if (userData) {
         user = JSON.parse(userData);

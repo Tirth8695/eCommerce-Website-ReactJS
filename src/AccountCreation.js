@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //accoutn creation page
 const AccountCreation = () => {
+
+    const navigate = useNavigate();
 
     const handleRegister = () => {
         const fname = document.getElementById("fname").value;
@@ -16,25 +18,32 @@ const AccountCreation = () => {
         }
         //check if email already exists
         const user = JSON.parse(localStorage.getItem("user"));
+        console.log(user);
         if (user !== null) {
-            if (user.email === email) {
-                alert("Email already exists");
-                return;
+            
+            for (let i = 0; i < user.length; i++) {
+                if (email === user[i].email) {
+                    console.log("email already exists");
+                    alert("Email already exists");
+                    return;
+                }
             }
             //check all fields are filled
             if (fname === "" || lname === "" || email === "" || password === "" || confirmPassword === "" || address === "") {
                 alert("Please fill all fields");
                 return;
             }
-            const user = {
-                fname: fname,
-                lname: lname,
+            const userData = {
+                fName: fname,
+                lName: lname,
                 email: email,
                 password: password,
                 address: address
             };
+            user.push(userData);
             localStorage.setItem("user", JSON.stringify(user));
             alert("Account Created");
+            setTimeout(() => { navigate("/login")  }, 1000);
         }
         
     };
