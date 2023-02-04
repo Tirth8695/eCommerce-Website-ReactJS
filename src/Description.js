@@ -51,6 +51,7 @@ function Description(props) {
                     </div>
                 </div>
             </div>
+            {/* <button className="addComment" onClick={}>Add Comment</button> */}
             <div className="commentSection">
                 <h1>Comments</h1>
                 <div className="comment">
