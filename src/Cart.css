@@ -1,9 +1,10 @@
 .modal-size {
     position: fixed;
-    background: lightblue;
+    background: #f8dbca;
     width: 40%;
-    height: 60%;
+    height: auto;
     top: 50%;
+    border-radius: 12px;
     left: 50%;
     right: auto;
     bottom: auto;
@@ -55,4 +56,19 @@ h2{
 }
 #checoutBtn{
   margin-left: 670px;
+}
+
+#continueShoppingBtn{
+  margin: 0px;
+  height: fit-content;
+  padding: 8px;
+}
+
+#emailCheckout, #addressCheckout{
+  border: 0;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  padding: 30px 0 5px 0;
+  font-size: 16px;
+  color: #fff;
 }

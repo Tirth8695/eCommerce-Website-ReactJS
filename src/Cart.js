@@ -151,16 +151,18 @@ function Cart(props) {
                             return (
                                 <div id="checkOutDiv">
                                     <h3>Thank you for shopping with us</h3>
-                                    <input type="email" placeholder="example@example.com" /> <br />
-                                    <textarea placeholder="Enter your address"></textarea> <br />
-                                    <sub>This data will not be stored</sub>
+                                    <p>Please enter your email and address to complete your order</p>
+                                    <input type="email" id="emailCheckout" placeholder="example@example.com" /> <br /> 
+                                    <p>Address</p>
+                                    <textarea id="addressCheckout" placeholder="Enter your address"></textarea> <br />
+                                    <sub>*This data will not be stored</sub>
                                     <p>Order will be delivered in 3-5 business days</p>
                                     <p>Order details will be sent to your email</p>
                                     <p>Order number: {Math.floor(Math.random() * 1000000000)}</p>
                                     <p>Order date: {new Date().toLocaleDateString()}</p>
                                     <p>Order total: {total.toFixed(2)}</p>
                                     <p>Total: {total.toFixed(2)}</p>
-                                    <button onClick={continueShopping}>Continue Shopping</button>
+                                    <button id="continueShoppingBtn" onClick={continueShopping}>Place Order & Continue Shopping</button>
                                 </div>
                             )
                         }

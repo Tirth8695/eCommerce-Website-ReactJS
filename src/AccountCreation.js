@@ -59,6 +59,7 @@ const AccountCreation = () => {
                 <input type="text" id="email" name="email" placeholder="Email"/><br />
                 <input type="text" id="password" name="password" placeholder="Password" /><br />
                 <input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"/><br />
+                <input type="text" id="address" name="address" placeholder="Address"/><br />
                 <button type="submit" id="accSubmit" onClick={handleRegister}>Submit</button>
             </div>
             <Link to="/login">Login</Link>

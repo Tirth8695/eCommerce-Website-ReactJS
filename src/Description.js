@@ -61,7 +61,7 @@ function Description(props) {
                 <span>Description</span>
                 <div className="description">
                     <div className="descriptionImage">
-                        <img src={location.state.item.image} alt="descriptionImage" width={300} height={400} />
+                        <img src={location.state.item.image} alt="descriptionImage" id="descriptionImg" />
                     </div>
                     <div className="descriptionText">
                         <h1>{location.state.item.name}</h1>
@@ -70,28 +70,30 @@ function Description(props) {
                         <p>Price: {location.state.item.price}</p>
                         <div className='addCommentSection'>
                             <textarea id='commentAdd' className="commentBox" placeholder="Add a review..." required></textarea> <br />
-                            <input id="id" className="rating" type="number" min="1" max="5" placeholder="Rating" required></input>/5 <br />
+                            <input id="ratingInput" className="rating" type="number" min="1" max="5" placeholder="Rating" required></input>/5 <br />
                             <input type="file" id="file" accept="image/*" />
-                            <button className="addCommentBtn" onClick={addComment}>Add Comment</button>
+                            <button className="addCommentBtn" onClick={addComment}>Add Review</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div className="commentSection">
-               
+
                 <div className="comment">
-                <h1>Comments</h1>
+                    <h1 id="reviewsTag">Reviews</h1>
                     {rating.map((item) => {
                         return (
-                            <div className="commentItem">
-                                <div className="commentImage">
-                                    <img src={item.image} alt="commentImage" width={200} height={200} />
-                                </div>
-                                <div className="commentText">
-                                    <h1>{item.username}</h1>
-                                    <p>{item.comment}</p>
-                                    <p>{item.rating}/5</p>
+                            <div className="commentItem" key={item.commentId}>
+                                <div className="commentDiv">
+                                    <div className="commentImage">
+                                        <img src={item.image} alt="commentImage" width={200} height={200} />
+                                    </div>
+                                    <div className="commentText">
+                                        <h1>{item.username}</h1>
+                                        <p>{item.comment}</p>
+                                        <p>{item.rating}/5</p>
+                                    </div>
                                 </div>
                             </div>
                         )
