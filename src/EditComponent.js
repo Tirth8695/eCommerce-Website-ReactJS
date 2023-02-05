@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Navigation from './Navigation';
 
 const EditComponent = () => {
         useEffect(() => {
@@ -41,6 +42,7 @@ const EditComponent = () => {
         };
         return (
             <div>
+                <Navigation />
                 <h1>Edit</h1>
                 <div>
                 <label for="email">Email:</label><br />

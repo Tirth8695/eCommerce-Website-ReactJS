@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap');
+
+#root{
+  background-color: #F0997D;
+  font-family: 'Alata','Quicksand', sans-serif;
+}
+
 .card {
     display: inline;
     height: 100%;
-    background-color: #fff;
+    background-color: #D3756B;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     flex-direction: column;
@@ -10,7 +17,7 @@
     padding: 20px;
     margin: 20px;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Alata' ,sans-serif;
 }
 
 .cardParent {
@@ -19,5 +26,26 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.card img {
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
+
+.card button {
+    background-color: #F0997D;
+    border: none;
+    border-radius: 5px;
+    color: #f8dbca;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+
 
 

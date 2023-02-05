@@ -22,13 +22,13 @@
     float: right;
     margin: auto;
     padding-right: 40px;
-    padding-top: 10px;
+    padding-top: 15px;
   }
 
   #navigation{
     margin: 0;
     padding: 0;
-    background-color: #9b5252;
+    background-color: #A75D5D;
     border-bottom: 1px solid #ccc;
     height: auto;
     width: 100%;
@@ -45,3 +45,8 @@
     padding-top: 10px;
 
   }
+
+  #navigation a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: #f8dbca;
+}

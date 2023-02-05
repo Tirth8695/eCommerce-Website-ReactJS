@@ -1,5 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Alata';
+
+}
+
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #F0997D;
+  font-family: 'Alata';
 }
 
 .App-logo {
@@ -38,4 +53,18 @@
 }
 
 
+/* scrollbar css */
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+  ::-webkit-scrollbar-track {
+  background: #F0997D; 
+}
+  ::-webkit-scrollbar-thumb {
+  background: #D3756B; 
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A75D5D; 
+} 

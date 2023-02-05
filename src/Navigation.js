@@ -39,9 +39,9 @@ function Navigation() {
                     <li><a href="/">Home</a></li>
                     <li><a href="Login" id="login">Login</a></li>
                     <li id="edit"><a href="Edit">Edit Profile</a></li>
-                    <li id="logout"><a style={{color:"#0000e4", cursor:"pointer"}}onClick={handleLogout}><u>Logout</u></a></li>
+                    <li id="logout"><a style={{color:"#f8dbca", cursor:"pointer"}}onClick={handleLogout}>Logout</a></li>
                     
-                    <div id="cartIcon"><ShoppingCartIcon onClick={handleCartOpen} style={{cursor:"pointer"}}/><sub id="sub"></sub></div>
+                    <div id="cartIcon"><ShoppingCartIcon onClick={handleCartOpen} style={{cursor:"pointer", color:"#f8dbca"}} color="#f8dbca"/><sub id="sub" style={{color:"#f8dbca"}}></sub></div>
                 </ul>
             </nav>
     </div>
