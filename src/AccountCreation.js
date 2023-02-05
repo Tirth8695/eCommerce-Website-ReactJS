@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import "./AccountCreation.css"
 
 //accoutn creation page
 const AccountCreation = () => {
@@ -52,19 +53,13 @@ const AccountCreation = () => {
     return (
         <div className="accountCreation">
             <h1>Account Creation</h1>
-            <div>
-                <label for="fname">First name:</label><br />
-                <input type="text" id="fname" name="fname" /><br />
-                <label for="lname">Last name:</label><br />
-                <input type="text" id="lname" name="lname" /><br />
-                <label for="email">Email:</label><br />
-                <input type="text" id="email" name="email" /><br />
-                <label for="password">Password:</label><br />
-                <input type="text" id="password" name="password" /><br />
-                <label for="confirmPassword">Confirm Password:</label><br />
-                <input type="text" id="confirmPassword" name="confirmPassword" /><br />
-                <textarea id="address" name="address" rows="4" cols="50"/>
-                <input type="submit" value="Submit" onClick={handleRegister} />
+            <div className="createAcc">
+                <input type="text" id="fname" name="fname" placeholder="First Name" /><br />
+                <input type="text" id="lname" name="lname" placeholder="Last Name" /><br />
+                <input type="text" id="email" name="email" placeholder="Email"/><br />
+                <input type="text" id="password" name="password" placeholder="Password" /><br />
+                <input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"/><br />
+                <button type="submit" id="accSubmit" onClick={handleRegister}>Submit</button>
             </div>
             <Link to="/login">Login</Link>
         </div>

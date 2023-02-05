@@ -1,0 +1,19 @@
+.descriptionImage{
+    margin: 100px 0 70px 0;
+    width: 40%;
+    float: left;
+}
+.descriptionText{
+    margin: 170px 0 60px 0;
+    width: 60%;
+    float: right;
+}
+.commentText{
+    margin-left: 40px;
+}
+.addCommentSection{
+    margin-top: 60px;
+}
+.comment{
+    margin-top: 100px;
+}

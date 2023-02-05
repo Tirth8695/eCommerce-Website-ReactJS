@@ -25,3 +25,34 @@
   #CartDiv {
     padding-top: 8%;
   }
+  table {
+    margin: 50px 0 0 220px;
+    width: 90%;
+
+}
+
+table th {
+    font-family: Noto Serif;
+    text-align: left;
+    font-size: 19px;
+    margin-bottom: 10px;
+    padding: 4px;
+}
+
+table td {
+    font-family: Noto Serif;
+    font-size: 16px;
+    padding: 4px;
+}
+h2{
+  color: beige;
+  text-align: center;
+}
+#quanChange{
+  width: 30px;
+  height: 30px;
+  margin: 0 10px 0 10px;
+}
+#checoutBtn{
+  margin-left: 670px;
+}

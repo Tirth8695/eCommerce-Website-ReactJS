@@ -97,16 +97,15 @@ function Cart(props) {
            
             <Navigation />
             <div id="CartDiv">
-            <span>Cart</span>
+            <h2>Cart</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Product</th>
                         <th>Price</th>
                         <th>Total</th>
-                        <td></td>
-                        <td>Quantity</td>
-                        <td></td>
+
+                        <th>Quantity</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,15 +114,13 @@ function Cart(props) {
                             <td>{item.name}</td>
                             <td>{item.price}</td>
                             <td>{item.quantity * item.price}</td>
-                            <td><button onClick={(e) => removeCartItem(e, item)}>-</button></td>
-                            <td>{item.quantity}</td>
-                            <td><button onClick={(e) => addCartItem(e, item)}>+</button></td>
+                            <td><button id='quanChange' onClick={(e) => removeCartItem(e, item)}>-</button>{item.quantity}<button id='quanChange' onClick={(e) => addCartItem(e, item)}>+</button></td>
                             <td><button onClick={(e) => removeItemFromCart(e, item)}>Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <button onClick={handleCheckout}>CheckOut</button>
+            <button id='checoutBtn' onClick={handleCheckout}>CheckOut</button>
             {/* <div>
                 <span id='checkTitle'></span>
                 <p>Total: {total.toFixed(2)}</p>

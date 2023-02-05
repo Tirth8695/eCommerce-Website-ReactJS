@@ -3,7 +3,7 @@ import './index.css';
 import './Home.css';
 import { useLocation } from "react-router-dom";
 import Navigation from './Navigation';
-
+import './Description.css';
 function Description(props) {
     const location = useLocation();
     console.log("Debug", location.state.item.description);
@@ -61,28 +61,32 @@ function Description(props) {
                 <span>Description</span>
                 <div className="description">
                     <div className="descriptionImage">
-                        <img src={location.state.item.image} alt="descriptionImage" />
+                        <img src={location.state.item.image} alt="descriptionImage" width={300} height={400} />
                     </div>
                     <div className="descriptionText">
                         <h1>{location.state.item.name}</h1>
                         <p>{location.state.item.description}</p>
                         <p>Description: {location.state.item.detail}</p>
                         <p>Price: {location.state.item.price}</p>
+                        <div className='addCommentSection'>
+                            <textarea id='commentAdd' className="commentBox" placeholder="Add a review..." required></textarea> <br />
+                            <input id="id" className="rating" type="number" min="1" max="5" placeholder="Rating" required></input>/5 <br />
+                            <input type="file" id="file" accept="image/*" />
+                            <button className="addCommentBtn" onClick={addComment}>Add Comment</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <textarea id='comment' className="commentBox" placeholder="Add a review..." required></textarea> <br />
-            <input id="id" className="rating" type="number" min="1" max="5" placeholder="Rating" required></input>/5 <br />
-            <input type="file" id="file" accept="image/*" /> 
-            <button className="addComment" onClick={addComment}>Add Comment</button>
+            
             <div className="commentSection">
-                <h1>Comments</h1>
+               
                 <div className="comment">
+                <h1>Comments</h1>
                     {rating.map((item) => {
                         return (
                             <div className="commentItem">
                                 <div className="commentImage">
-                                    <img src={item.image} alt="commentImage" />
+                                    <img src={item.image} alt="commentImage" width={200} height={200} />
                                 </div>
                                 <div className="commentText">
                                     <h1>{item.username}</h1>
@@ -92,7 +96,7 @@ function Description(props) {
                             </div>
                         )
                     }
-                    )};
+                    )}
                 </div>
             </div>
         </div>

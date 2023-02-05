@@ -1,0 +1,49 @@
+.accountCreation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 180px;
+}
+
+.createAcc{
+	position:relative;
+	margin-bottom:25px;
+    width: 300px;   
+}
+.createAcc input{ 
+  border:0;
+  border-bottom:1px solid #fff;  
+  width:100%;
+  padding:30px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+  background-color: #F0997D;
+  
+}
+.createAcc input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #D3756B;	
+}
+button{
+    width: 10em;
+    height: 5ex;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #D3756B;
+    cursor: pointer;
+    margin: 30px 0 20px 80px;
+}
+button:is(:hover, :focus) {
+    background-color: #D3756B ;
+    color: beige;
+    border: none;
+  }
+
+  ::placeholder {
+    color: #fff;
+    opacity: 1; /* Firefox */
+  }

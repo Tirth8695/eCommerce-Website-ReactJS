@@ -1,6 +1,7 @@
 // login page
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
+import './Login.css'
 
 const Login = () => {
     const navigate = useNavigate();
@@ -44,16 +45,17 @@ const Login = () => {
         alert("Login Failed");
     };
     return (
-    <div>
+     <div className='loginScreen'>
+        <div className='login'>
         <h1>Login</h1>
-        <div>
-            <label for="email">Email:</label><br />
-            <input type="text" id="email" name="email" /><br />
-            <label for="password">Password:</label><br />
-            <input type="password" id="password" name="password" /><br />
-            <input type="submit" value="Submit" onClick={handleLogin} />
+            <div className='loginInput'>
+                <input type="text" id="email" name="email" placeholder='Email' />
+                <input type="password" id="password" name="password" placeholder='Password'/><br />
+            </div>
+            <input type="submit" id='submit' value="Submit" onClick={handleLogin} />
+            <Link to="/accountCreation">Create Account</Link>
         </div>
-        <Link to="/accountCreation">Create Account</Link>
+        
     </div>
  );
 }
