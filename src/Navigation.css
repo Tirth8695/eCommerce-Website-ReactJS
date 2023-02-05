@@ -22,4 +22,26 @@
     float: right;
     margin: auto;
     padding-right: 40px;
+    padding-top: 10px;
+  }
+
+  #navigation{
+    margin: 0;
+    padding: 0;
+    background-color: #9b5252;
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+
+  #navOptions {
+    position: relative;
+    float: left;
+    margin: auto; 
+    padding-left: 40px;
+    padding-top: 10px;
+
   }

@@ -125,22 +125,6 @@ function Home() {
             detail: "These shorts are made from a soft and comfortable cotton blend material that is perfect for everyday wear. The classic fit design features a straight leg and a mid-rise waist for a timeless look that can be dressed up or down. Available in a variety of colors, these shorts are the perfect addition to any wardrobe for effortless style and comfort.",
             image: "https://i.ibb.co/N6zvfF0/shorts.png",
             price: 18.00
-        },
-        {
-            id: 10,
-            name: "Flip Flops",
-            description: "Beach flip flops",
-            detail: "These flip flops are made from a soft and comfortable material that is perfect for everyday wear. The classic design features a thong strap for a secure and snug fit. The rubber sole provides traction and stability on slippery surfaces. Available in a variety of colors, these flip flops are the perfect addition to any wardrobe for effortless style and comfort.",
-            image: "https://i.ibb.co/RCHGHhF/flipflops-transformed.webp",
-            price: 18.00
-        },
-        {
-            id: 11,
-            name: "Sweatshirt",
-            description: "Adidas sports sweatshirt for men",
-            detail: "This sweatshirt is made of soft and comfortable fabric that is perfect for everyday wear. The classic fit and ribbed cuffs and hem make it a timeless addition to your wardrobe. The versatile color options allow you to mix and match with ease, while the crewneck design adds a touch of casual style. Ideal for lounging at home, running errands, or layering under jackets, this sweatshirt is a must-have for any wardrobe.",
-            image: "https://i.ibb.co/1QBCT2h/sweatshirt-removebg-preview.png",
-            price: 20.00
         }
     ]
 

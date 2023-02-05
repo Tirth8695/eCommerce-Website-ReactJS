@@ -35,10 +35,12 @@ function Navigation() {
     <div>
       <nav id="navigation">
                 <ul>
+                
                     <li><a href="/">Home</a></li>
                     <li><a href="Login" id="login">Login</a></li>
                     <li id="edit"><a href="Edit">Edit Profile</a></li>
                     <li id="logout"><a style={{color:"#0000e4", cursor:"pointer"}}onClick={handleLogout}><u>Logout</u></a></li>
+                    
                     <div id="cartIcon"><ShoppingCartIcon onClick={handleCartOpen} style={{cursor:"pointer"}}/><sub id="sub"></sub></div>
                 </ul>
             </nav>
