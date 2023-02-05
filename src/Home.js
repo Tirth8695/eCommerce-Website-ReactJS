@@ -154,11 +154,11 @@ function Home() {
             <div className="cardParent">
                 {store.map((item) => (
                     <div className="card" key={item.id} >
-                        <div onClick={(e) => { clickCard(e, item); }}>
+                        <div id="descriptionDiv" onClick={(e) => { clickCard(e, item); }}>
                             <p>{item.name}</p>
                             <p>{item.discription}</p>
                             <img src={item.image} height={200} width={200} alt={item.name} />
-                            <p>{item.price}</p>
+                            <p>$ {item.price}</p>
                         </div>
                         <button id="addItemCart" onClick={(e) => addItemToCart(e, item)}>Add to Cart</button>
                     </div>
