@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import './Login.css'
+import { Snackbar, SnackbarContent } from '@material-ui/core';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -9,6 +10,7 @@ const Login = () => {
     const userData = localStorage.getItem('user');
     //fetch logged in user data from local storage
     const loggedInUser = localStorage.getItem('loggedInUser');
+    const [open, setOpen] = useState(false);
     //if user is logged in, redirect to home page
     useEffect(() => {
         if (loggedInUser) {
@@ -37,8 +39,7 @@ const Login = () => {
             if (email === user[i].email && password === user[i].password) {
                 //save data to local storage for logged in user
                 localStorage.setItem('loggedInUser', JSON.stringify(user[i]));
-                alert("Login Successful");
-                setTimeout(() => { navigate("/")  }, 1000);
+                setOpen(true);
                 return;
             }
         }
@@ -55,7 +56,26 @@ const Login = () => {
             <input type="submit" id='submit' value="Submit" onClick={handleLogin} />
             <Link to="/accountCreation">Create Account</Link>
         </div>
-        
+        <Snackbar
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                ContentProps={{
+                    sx: {
+                        background: "red"
+                    }
+                }}
+                open={open}
+                message="Login Successful"
+                key={'bottom' + 'left'}
+                onClose={() => { navigate("/") }}
+                color="success"
+                autoHideDuration={1000}
+            >
+                <SnackbarContent style={{
+                    backgroundColor: "#c67a6f",
+                }}
+                    message="Login Successful"
+                />
+            </Snackbar>
     </div>
  );
 }

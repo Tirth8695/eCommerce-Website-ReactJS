@@ -32,6 +32,14 @@
 
 }
 
+.cartTable td, input, th {
+  margin-left: 10%;
+  width: auto;
+  height: auto;
+  color: #fff;
+  font-family: 'Alata', 'Roboto',sans-serif;
+}
+
 table th {
     font-family: Noto Serif;
     text-align: left;

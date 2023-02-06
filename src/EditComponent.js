@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Navigation from './Navigation';
 import "./EditComponent.css"
+import { Snackbar, SnackbarContent } from '@material-ui/core';
 
 const EditComponent = () => {
     useEffect(() => {
@@ -19,8 +20,12 @@ const EditComponent = () => {
         }
     }, []);
     const navigate = useNavigate();
-    const handleEdit = () => {
+
+    const [open, setOpen] = useState(false);
+
+    const handleEdit = (e) => {
         //edit current loggedin user info
+        e.preventDefault();
         const user = JSON.parse(localStorage.getItem('loggedInUser'));
         if (user) {
             user.fName = document.getElementById("fName").value;
@@ -36,8 +41,8 @@ const EditComponent = () => {
                 }
             });
             localStorage.setItem('user', JSON.stringify(userData));
-            alert("Edit Successful");
-            setTimeout(() => { navigate("/") }, 1000);
+            setOpen(true);
+
             return;
         }
     };
@@ -45,37 +50,57 @@ const EditComponent = () => {
         <div>
             <Navigation />
             <div id='parentEditDiv'>
-            <h1 className="editpageH1" >Edit Profile</h1> <br />
-                    {/* write all fields in table */}
-                    <table className="editprofileTable">
+                <h1 className="editpageH1" >Edit Profile</h1> <br />
+                {/* write all fields in table */}
+                <table className="editprofileTable">
                     <tr>
-                            <td>Email</td>
-                            <td><input type="text" id="email" disabled /></td>
-                        </tr>
-                        <tr>
-                            <td>First Name</td>
-                            <td><input type="text" id="fName" /></td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td><input type="text" id="lName" /></td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td><input type="password" id="password" /></td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td><input type="text" id="address" /></td>
-                        </tr>
-                    </table>
-                    <br />
-                    <br />
-                    <div id='submitParent'>
+                        <td>Email</td>
+                        <td><input type="text" id="email" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" id="fName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" id="lName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" id="password" /></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td><input type="text" id="address" /></td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <div id='submitParent'>
                     <button type="submit" id="editprofileBtn" value="Submit" onClick={handleEdit}>Update</button>
-                    </div>
+                </div>
             </div>
-              
+            <Snackbar
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                ContentProps={{
+                    sx: {
+                        background: "red"
+                    }
+                }}
+                open={open}
+                message="Edit Successful"
+                key={'bottom' + 'left'}
+                onClose={() => { navigate("/") }}
+                color="success"
+                autoHideDuration={1000}
+            >
+                <SnackbarContent style={{
+                    backgroundColor: "#c67a6f",
+                }}
+                    message="Edit Successful"
+                />
+            </Snackbar>
+
         </div>
     );
 };

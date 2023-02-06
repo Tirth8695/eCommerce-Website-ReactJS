@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 import './Home.css';
 import { useLocation } from "react-router-dom";
 import Navigation from './Navigation';
 import './Description.css';
+import { Snackbar, SnackbarContent } from '@material-ui/core';
 function Description(props) {
     const location = useLocation();
     console.log("Debug", location.state.item.description);
 
+    const [comments, setComments] = useState([]);
+    const [imageURL, setImage] = useState(null);
+    const [open, setOpen] = useState(false);
+    var userId = 104;
+    var commentId = 4;
     const rating = [{
         commentId: 1,
         userId: 101,
@@ -36,22 +42,34 @@ function Description(props) {
         image: location.state.item.image
     }]
 
-    const addComment = () => {
-        const comment = document.getElementById('comment').value;
-        const rating = document.getElementById('rating').value;
-        const image = document.getElementById('file').value;
-        const userId = JSON.parse(localStorage.getItem('loggedInUser')).id;
+    useEffect(() => {
+        setComments(rating);
+    }, []);
+
+    const addComment = (e) => {
+        e.preventDefault();
+        console.log("add comment");
+        const comment = document.getElementById('commentAdd').value;
+        const ratingValue = document.getElementById('ratingInput').value;
 
         const newComment = {
-            commentId: userId,
-            userId: userId,
+            commentId: commentId++,
+            userId: userId++,
             username: JSON.parse(localStorage.getItem('loggedInUser')).fName,
             productId: location.state.item.id,
-            rating: rating,
+            rating: ratingValue,
             comment: comment,
-            image: image
+            image: imageURL
         }
+        var newRating = [...rating, newComment];
+        setComments(newRating);
+        setOpen(true);
     }
+
+    const handleChange = (e) => {
+        const file = URL.createObjectURL(e.target.files[0]);
+        setImage(file);
+    };
 
 
     return (
@@ -69,9 +87,10 @@ function Description(props) {
                         <p>Description: {location.state.item.detail}</p>
                         <p>Price: {location.state.item.price}</p>
                         <div className='addCommentSection'>
-                            <textarea id='commentAdd' className="commentBox" placeholder="Add a review..." required></textarea> <br />
-                            <input id="ratingInput" className="rating" type="number" min="1" max="5" placeholder="Rating" required></input>/5 <br />
-                            <input type="file" id="file" accept="image/*" />
+                            <h3 style={{ color: "white" }}>Write a review</h3>
+                            <textarea id='commentAdd' className="commentBox" placeholder="Add a review..." required /> <br />
+                            <input id="ratingInput" className="rating" type="number" min="1" max="5" placeholder="Rating" required />/5 <br />
+                            <input onChange={handleChange} type="file" id="file" accept="image/*" />
                             <button className="addCommentBtn" onClick={addComment}>Add Review</button>
                         </div>
                     </div>
@@ -82,7 +101,7 @@ function Description(props) {
 
                 <div className="comment">
                     <h1 id="reviewsTag">Reviews</h1>
-                    {rating.map((item) => {
+                    {comments.map((item) => {
                         return (
                             <div className="commentItem" key={item.commentId}>
                                 <div className="commentDiv">
@@ -101,6 +120,30 @@ function Description(props) {
                     )}
                 </div>
             </div>
+            <Snackbar
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                ContentProps={{
+                    sx: {
+                        background: "red"
+                    }
+                }}
+                open={open}
+                message="Comment Added"
+                key={'bottom' + 'left'}
+                autoHideDuration={1000}
+                onClose={() => setOpen(false)}
+                action={
+                    <React.Fragment>
+                        <button onClick={() => setOpen(false)}>Close</button>
+                    </React.Fragment>
+                }
+            >
+                <SnackbarContent style={{
+                    backgroundColor: "#c67a6f",
+                }}
+                    message="Comment Added"
+                />
+            </Snackbar>
         </div>
 
 

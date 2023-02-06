@@ -60,6 +60,7 @@
     margin: 10px 0 10px 0;
     font-size: 16px;
     font-family: 'Alata', sans-serif;
+    color: black;
 }
 
 
@@ -88,4 +89,8 @@ input::file-selector-button:hover {
     height: 100%;
     object-fit: cover;
 
+}
+
+#file {
+    margin: 0px;
 }

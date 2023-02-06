@@ -1,10 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./AccountCreation.css"
+import { Snackbar, SnackbarContent } from "@material-ui/core";
 
 //accoutn creation page
 const AccountCreation = () => {
 
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
+
 
     const handleRegister = () => {
         const fname = document.getElementById("fname").value;
@@ -43,9 +47,8 @@ const AccountCreation = () => {
             };
             user.push(userData);
             localStorage.setItem("user", JSON.stringify(user));
-            alert("Account Created");
-            setTimeout(() => { navigate("/login")  }, 1000);
-        }
+            setOpen(true);
+            }
         
     };
 
@@ -63,6 +66,26 @@ const AccountCreation = () => {
                 <button type="submit" id="accSubmit" onClick={handleRegister}>Submit</button>
             </div>
             <Link to="/login">Login</Link>
+            <Snackbar
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                ContentProps={{
+                    sx: {
+                        background: "red"
+                    }
+                }}
+                open={open}
+                message="Account Creation Successful"
+                key={'bottom' + 'left'}
+                onClose={() => { navigate("/Login") }}
+                color="success"
+                autoHideDuration={1000}
+            >
+                <SnackbarContent style={{
+                    backgroundColor: "#c67a6f",
+                }}
+                message="Account Creation Successful"
+                />
+            </Snackbar>
         </div>
 
     );

@@ -98,7 +98,7 @@ function Cart(props) {
             <Navigation />
             <div id="CartDiv">
             <h2>Cart</h2>
-            <table>
+            <table className='cartTable'>
                 <thead>
                     <tr>
                         <th>Product</th>
