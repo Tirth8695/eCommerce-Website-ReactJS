@@ -1,0 +1,59 @@
+.edit-profile {
+    align-items: center;
+    justify-content: center;
+    background-color: #F0997D;
+    margin-top: 200px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 20px;
+    position: relative;
+
+}
+
+.editprofileContent {
+    width: 450px;
+    margin: 50px auto;
+    padding-bottom: 25px;
+    padding-left: 55px;
+}
+
+.editprofileContent input {
+    border: 0px;
+    background-color: #F0997D;
+    border-bottom: 1px solid whitesmoke;
+    color: #fff;
+
+}
+.editprofileContent input:focus{
+ border:none;	
+ outline:none;
+ border-bottom:1px solid whitesmoke;
+}
+
+.editprofileContent label {
+    margin-right: 2%;
+    color: #fff;
+}
+
+#editprofilebtn {
+    width: 10em;
+    height: 5ex;
+    background-color: #fff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0 20px 0;
+}
+
+#editprofilebtn:is(:hover, :focus) {
+    background-color: #D3756B;
+    border: none;
+}
+
+.editpageH1 {
+    color: #fff;
+    align-self: center;
+    margin-left: 28%;
+}
