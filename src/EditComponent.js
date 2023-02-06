@@ -42,13 +42,13 @@ const EditComponent = () => {
         }
     };
     return (
-        <div >
+        <div>
             <Navigation />
             <div className="edit-profile">
-                <h1 className="editpageH1">Edit</h1>
+                <h1 className="editpageH1" >Edit</h1>
                 <div className="editprofileContent">
                     <label for="email">Email:</label>
-                    <input type="text" placeholder="First Name" id="email" name="email" disabled /><br /><br />
+                    <input type="text" id="email" name="email" disabled /><br /><br />
                     <label for="fName">First Name:</label>
                     <input type="text" id="fName" name="fName" /><br /><br />
                     <label for="lName">Last Name:</label>
@@ -57,7 +57,7 @@ const EditComponent = () => {
                     <input type="password" id="password" name="password" /><br /><br />
                     <label for="address">Address:</label>
                     <input type="text" id="address" name="address" /><br /><br />
-                    <button type="submit" id="editprofilebtn" value="Submit" onClick={handleEdit} ></button>
+                    <button type="submit" id="editprofilebtn" value="Submit" onClick={handleEdit} />
                 </div>
             </div>
         </div>

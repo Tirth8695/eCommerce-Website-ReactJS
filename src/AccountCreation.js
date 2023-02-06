@@ -21,7 +21,7 @@ const AccountCreation = () => {
         const user = JSON.parse(localStorage.getItem("user"));
         console.log(user);
         if (user !== null) {
-
+            
             for (let i = 0; i < user.length; i++) {
                 if (email === user[i].email) {
                     console.log("email already exists");
@@ -44,9 +44,9 @@ const AccountCreation = () => {
             user.push(userData);
             localStorage.setItem("user", JSON.stringify(user));
             alert("Account Created");
-            setTimeout(() => { navigate("/login") }, 1000);
+            setTimeout(() => { navigate("/login")  }, 1000);
         }
-
+        
     };
 
 
@@ -56,10 +56,10 @@ const AccountCreation = () => {
             <div className="createAcc">
                 <input type="text" id="fname" name="fname" placeholder="First Name" /><br />
                 <input type="text" id="lname" name="lname" placeholder="Last Name" /><br />
-                <input type="text" id="email" name="email" placeholder="Email" /><br />
+                <input type="text" id="email" name="email" placeholder="Email"/><br />
                 <input type="text" id="password" name="password" placeholder="Password" /><br />
-                <input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" /><br />
-                <input type="text" id="address" name="address" placeholder="Address" /><br />
+                <input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"/><br />
+                <input type="text" id="address" name="address" placeholder="Address"/><br />
                 <button type="submit" id="accSubmit" onClick={handleRegister}>Submit</button>
             </div>
             <Link to="/login">Login</Link>

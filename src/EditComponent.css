@@ -24,10 +24,11 @@
     color: #fff;
 
 }
-.editprofileContent input:focus{
- border:none;	
- outline:none;
- border-bottom:1px solid whitesmoke;
+
+.editprofileContent input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid whitesmoke;
 }
 
 .editprofileContent label {
