@@ -44,22 +44,38 @@ const EditComponent = () => {
     return (
         <div>
             <Navigation />
-            <div className="edit-profile">
-                <h1 className="editpageH1" >Edit</h1>
-                <div className="editprofileContent">
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" disabled /><br /><br />
-                    <label for="fName">First Name:</label>
-                    <input type="text" id="fName" name="fName" /><br /><br />
-                    <label for="lName">Last Name:</label>
-                    <input type="text" id="lName" name="lName" /><br /><br />
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" /><br /><br />
-                    <label for="address">Address:</label>
-                    <input type="text" id="address" name="address" /><br /><br />
-                    <button type="submit" id="editprofilebtn" value="Submit" onClick={handleEdit} />
-                </div>
+            <div id='parentEditDiv'>
+            <h1 className="editpageH1" >Edit Profile</h1> <br />
+                    {/* write all fields in table */}
+                    <table className="editprofileTable">
+                    <tr>
+                            <td>Email</td>
+                            <td><input type="text" id="email" disabled /></td>
+                        </tr>
+                        <tr>
+                            <td>First Name</td>
+                            <td><input type="text" id="fName" /></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td><input type="text" id="lName" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" id="password" /></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td><input type="text" id="address" /></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <div id='submitParent'>
+                    <button type="submit" id="editprofileBtn" value="Submit" onClick={handleEdit}>Update</button>
+                    </div>
             </div>
+              
         </div>
     );
 };

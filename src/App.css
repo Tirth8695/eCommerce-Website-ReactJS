@@ -14,8 +14,9 @@ html, body{
 }
 body{
   background-color: #F0997D;
-  font-family: 'Alata';
+  font-family: 'Alata', sans-serif;
 }
+
 
 .App-logo {
   height: 40vmin;

@@ -1,23 +1,17 @@
-.edit-profile {
+@import url('https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap');
+
+#parentEditDiv {
     align-items: center;
     justify-content: center;
     background-color: #F0997D;
     margin-top: 200px;
     margin-left: 20%;
     margin-right: 20%;
-    border-radius: 20px;
     position: relative;
 
 }
 
-.editprofileContent {
-    width: 450px;
-    margin: 50px auto;
-    padding-bottom: 25px;
-    padding-left: 55px;
-}
-
-.editprofileContent input {
+#parentEditDiv input {
     border: 0px;
     background-color: #F0997D;
     border-bottom: 1px solid whitesmoke;
@@ -25,36 +19,59 @@
 
 }
 
-.editprofileContent input:focus {
+#parentEditDiv input:focus {
     border: none;
     outline: none;
     border-bottom: 1px solid whitesmoke;
 }
 
-.editprofileContent label {
+#parentEditDiv label {
     margin-right: 2%;
     color: #fff;
 }
 
-#editprofilebtn {
+#editprofileBtn {
     width: 10em;
     height: 5ex;
     background-color: #fff;
-    color: black;
+    color: #D3756B;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    margin: 20px 0 20px 0;
+    margin: 0px;
 }
 
-#editprofilebtn:is(:hover, :focus) {
+#editprofileBtn:is(:hover, :focus) {
     background-color: #D3756B;
+    color: #fff;
     border: none;
+}
+
+.editprofileTable td, input {
+    margin-left: 10%;
+    width: auto;
+    height: auto;
+    color: #fff;
+    font-family: 'Alata', 'Roboto',sans-serif;
+}
+
+.editprofileTable {
+    margin: auto;
+    width: fit-content;
 }
 
 .editpageH1 {
     color: #fff;
-    align-self: center;
-    margin-left: 28%;
+    font-family: 'Alata', 'Roboto',sans-serif;
+    align-items: center;
 }
+
+h1.editpageH1 {
+    text-align: center;
+}
+
+#submitParent{
+    text-align: center;
+}
+
