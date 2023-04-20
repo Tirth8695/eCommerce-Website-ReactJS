@@ -18,32 +18,29 @@ const Login = () => {
         }
     },[]);
     let user = [];
-    if (userData) {
-        user = JSON.parse(userData);
-    } else {
-        user = [{
-            email: "assignment@gmail.com",
-            password: "111111",
-            fName: "Assignment",
-            lName: "1",
-            address: "Waterloo, ON",
-        }];
-        //save this data to local storage
-        localStorage.setItem('user', JSON.stringify(user));
-    }
+    
 
     const handleLogin = () => {
+        // console.log("Login");
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        for (let i = 0; i < user.length; i++) {
-            if (email === user[i].email && password === user[i].password) {
-                //save data to local storage for logged in user
-                localStorage.setItem('loggedInUser', JSON.stringify(user[i]));
+        //fetch user data from localhost 3000
+        fetch('http://localhost:3000/user/'+email).then((response) => {
+            return response.json();
+        }).then((data) => {
+            // console.log(data);
+            user = data;
+            //if user data is not empty and password matches, set user as logged in
+            if (user.length !== 0 && user[0].pass === password) {
+                localStorage.setItem('loggedInUser', JSON.stringify(user[0]));
                 setOpen(true);
-                return;
             }
-        }
-        alert("Login Failed");
+            else {
+                alert("Invalid email or password");
+            }
+        });
+
+    
     };
     return (
      <div className='loginScreen'>
